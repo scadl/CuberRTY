@@ -79,7 +79,6 @@ DerivedDataCache/*
 *WindowsNoEditor/
 *Standalone/
 *Screenshots/
-Release/
-SKP/
+*Release/
+*SKP/
 *.kra
-BasilikaSudak-BGE.blend
