@@ -44,13 +44,9 @@ public class CubeRTYMenu implements Screen {
         BitmapFont myFont = fontGen.generateFont(fontParam);
 
         Label.LabelStyle[] myStyle = {
-                new Label.LabelStyle(),
-                new Label.LabelStyle(),
+                new Label.LabelStyle(myFont, Color.valueOf("#fffe92")),
+                new Label.LabelStyle(myFont, Color.WHITE),
         };
-        myStyle[0].font = myFont;
-        myStyle[0].fontColor =  Color.valueOf("#fffe92");
-        myStyle[1].font = myFont;
-        myStyle[1].fontColor =  Color.WHITE;
 
         Label lblTitle = new Label(intro[0], myStyle[0]);
         lblTitle.setWidth(Gdx.graphics.getWidth() - 20);
