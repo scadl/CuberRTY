@@ -1,10 +1,10 @@
 android {
     signingConfigs {
         debug {
-            storeFile file('C:\\Works\\Development\\CuberRTY\\android\\debug.keystore')
-            storePassword '123456'
+            storeFile file('C:\\Users\\SCAD\\.android\\debug.keystore')
+            storePassword '198864'
             keyAlias 'androiddebugkey'
-            keyPassword '123456'
+            keyPassword '198864'
         }
     }
     buildToolsVersion "29.0.3"
