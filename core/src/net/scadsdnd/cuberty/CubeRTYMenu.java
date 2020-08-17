@@ -7,6 +7,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.Stage;
@@ -27,7 +28,7 @@ public class CubeRTYMenu implements Screen {
         myGame = rootGame;
         myStage = new Stage(new ScreenViewport());
 
-        Texture imgIco = new Texture("icon0001.png");
+        Texture imgIco = new Texture(Gdx.files.internal("icon0001.png"));
         String[] intro = new String[3];
         intro[0] = "Welcome to CubeRTY Labyrinth game!";
         intro[1] = "Your goal here, is to touch glowing yellow stick (hidden somewhere in each level) " +
@@ -37,7 +38,10 @@ public class CubeRTYMenu implements Screen {
                 "while game board may easily flip upside-down during action.";
         intro[2] = "Continue...";
 
-        BitmapFont myFont = new BitmapFont();
+        FreeTypeFontGenerator fontGen = new FreeTypeFontGenerator(Gdx.files.internal("fonts/LiberationSerif-Bold.ttf"));
+        FreeTypeFontGenerator.FreeTypeFontParameter fontParam = new FreeTypeFontGenerator.FreeTypeFontParameter();
+        fontParam.size = 20;
+        BitmapFont myFont = fontGen.generateFont(fontParam);
 
         Label.LabelStyle[] myStyle = {
                 new Label.LabelStyle(),
@@ -57,15 +61,15 @@ public class CubeRTYMenu implements Screen {
         Label lblIntro = new Label(intro[1], myStyle[1]);
         lblIntro.setWidth(Gdx.graphics.getWidth() - 20);
         lblIntro.setWrap(true);
-        lblIntro.setPosition(10, Gdx.graphics.getHeight() - 90);
+        lblIntro.setPosition(10, Gdx.graphics.getHeight() - 130);
         lblIntro.setAlignment(Align.center);
         myStage.addActor(lblIntro);
 
         Skin uiSkin = new Skin(Gdx.files.internal("skin/uiskin.json"));
 
         TextButton btnCont = new TextButton(intro[2], uiSkin);
-        btnCont.setWidth(Gdx.graphics.getWidth() - 100);
-        btnCont.setPosition(50, 50);
+        btnCont.setWidth(Gdx.graphics.getWidth() - 400);
+        btnCont.setPosition(200, 30);
 
         btnCont.addListener(new InputListener(){
             @Override
@@ -80,8 +84,8 @@ public class CubeRTYMenu implements Screen {
         myStage.addActor(btnCont);
 
         Image imgLogo = new Image(imgIco);
-        imgLogo.setSize(256, 256);
-        imgLogo.setPosition(Gdx.graphics.getWidth() / 2 - 256 /2, 100);
+        imgLogo.setSize(128, 128);
+        imgLogo.setPosition(Gdx.graphics.getWidth() / 2 - 128 /2, 100);
         myStage.addActor(imgLogo);
 
     }
